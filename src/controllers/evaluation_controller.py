@@ -12,14 +12,12 @@ def get_evaluation(fen: str) -> float:
 
     logger.info(f"One-hotted FEN: \033[1m{pd.DataFrame([one_hotted_fen]).shape[1]} columns\033[0m")
 
-    # model = keras.models.load_model("models/stockfish_model") # type: ignore
+    model = keras.models.load_model("./src/model/broken.keras") # type: ignore
 
-    # logger.info(f"Model loaded: \033[1m{model}\033[0m")
+    logger.info(f"Model loaded: \033[1m{model}\033[0m")
 
-    # evaluation = model.predict(pd.DataFrame([one_hotted_fen])) # type: ignore
+    evaluation = model.predict(pd.DataFrame([one_hotted_fen]))[0][0] # type: ignore
 
-    # logger.info(f"Model prediction: \033[1m{evaluation}\033[0m")
-
-    evaluation = 0.0
+    logger.info(f"Model prediction: \033[1m{evaluation}\033[0m")
 
     return evaluation # type: ignore
