@@ -32,8 +32,8 @@ def precompute_fen_template():
                 "h6",
             ]
         },
-        "Halfmove_Clock": 0,
-        "Fullmove_Number": 0,
+        # "Halfmove_Clock": 0,
+        # "Fullmove_Number": 0,
     }
 
     return {**board_template, **other_features}
@@ -67,6 +67,6 @@ def fen_to_one_hot_optimized(fen: str) -> dict[str, int]:
     one_hot[f"En_Passant_None"] = 1 if en_passant == "-" else 0
     if en_passant != "-":
         one_hot[f"En_Passant_{en_passant}"] = 1
-    one_hot[f"Halfmove_Clock"] = int(halfmove_clock)
-    one_hot[f"Fullmove_Number"] = int(fullmove_number)
+    # one_hot[f"Halfmove_Clock"] = int(halfmove_clock)
+    # one_hot[f"Fullmove_Number"] = int(fullmove_number)
     return one_hot
